@@ -82,5 +82,3 @@ make help
 ## 💡 Customization
 
 The Makefile automatically detects whether your virtual environment folder is named `.venv` or `venv`. You can override or adjust parameters directly at the top of the file if needed.
-
-```
