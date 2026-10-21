@@ -65,7 +65,3 @@ make help
 * `make clean`: Cleans project build directories (`bin/`, `obj/`) and clears local NuGet caches.
 
 ---
-
-Com este, fechamos o ciclo completo do repositório `production-makefiles` cobrindo **Go, Python e .NET** com aquele selo de qualidade de código que veio diretamente de produção!
-
-```
