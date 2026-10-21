@@ -91,6 +91,10 @@ format: ## Auto-format C# code using dotnet format
 	@echo "$(CYAN)Formatting C# code...$(RESET)"
 	dotnet format
 
+vuln-check: ## Check NuGet packages for known security vulnerabilities
+	@echo "$(CYAN)Scanning NuGet packages for vulnerabilities...$(RESET)"
+	dotnet list package --vulnerable --include-transitive
+
 
 # =========================
 # Docker Operations
@@ -110,6 +114,20 @@ docker-logs: ## Tail Docker Compose logs
 
 docker-clean: ## Clean up unused Docker resources
 	docker system prune -f
+
+
+# =========================
+# Production Publish & Tools
+# =========================
+.PHONY: publish ef-bundle
+
+publish: ## Build and publish the application in Release mode
+	@echo "$(BLUE)Publishing application (Release)...$(RESET)"
+	dotnet publish $(PROJECT_FILE) -c Release -o ./publish
+
+ef-bundle: ## Generate a standalone SQL script from migrations (Production deploy)
+	@echo "$(CYAN)Generating migration SQL bundle...$(RESET)"
+	dotnet ef migrations bundle --project $(PROJECT_FILE) --output ./publish/migrate.sql
 
 
 # =========================
