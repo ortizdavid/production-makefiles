@@ -19,7 +19,7 @@ To make full use of all targets included in this Makefile, ensure you have the f
 ## 🚀 Quick Start
 
 1. Copy the `Makefile` into the root directory of your Go project:
-   ```bash
+```bash
    cp templates/go/Makefile ./Makefile
 
 ```
